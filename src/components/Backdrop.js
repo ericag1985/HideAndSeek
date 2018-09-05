@@ -4,21 +4,25 @@ import { deviceHeight, deviceWidth } from "../../utils/utilties";
 
 class Backdrop extends Component {
   render() {
-    const { y } = this.props;
+    const { y, x } = this.props;
 
     const imageWidth = 4 * deviceWidth;
+    const imageHeight = 2 * deviceHeight;
     const backdropDimensions = {
       width: imageWidth,
-      height: deviceHeight
+      height: imageHeight
     };
 
     const positionOnScreenX = -imageWidth / 2;
-    // The y axis of the sensor data resembles what we need for the x axis in the image
+    const positionOnScreenY = -imageHeight / 2;
+
     const movementX = -y / 10 * imageWidth;
+    const movementY = -x / 10 * imageHeight;
 
     return (
       <Image
         translateX={positionOnScreenX + movementX}
+        translateY={positionOnScreenY + movementY}
         style={[styles.backdrop, backdropDimensions]}
         source={require('../../assets/images/backdrop.jpg')}
       />

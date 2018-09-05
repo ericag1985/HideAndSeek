@@ -6,7 +6,7 @@ import Backdrop from './components/Backdrop';
 import Unicorn from './components/Unicorn';
 import { getRandomNumber } from "../utils/utilties";
 
-const randomYVariable = getRandomNumber(-10, 10); //Random Y between -10 and 10
+const randomVariable = Math.floor(getRandomNumber(-5, 5)); //Random Y and X values between -5 and 5
 
 class Screen extends Component {
   constructor(props) {
@@ -16,9 +16,10 @@ class Screen extends Component {
       updateInterval: 50
     })
       .then(observable => {
-        observable.subscribe(({ y }) => {
+        observable.subscribe(({ y, x }) => {
           this.setState(state => ({
-            y: y + state.y
+            y: y + state.y,
+            x: x + state.x
           }));
         });
       })
@@ -27,20 +28,26 @@ class Screen extends Component {
       });
 
     this.state = {
-      y: 0
+      y: 0,
+      x: 0
     };
   }
 
   render() {
-    const { y } = this.state;
-    const showUnicorn = Math.floor(y) === Math.floor(randomYVariable);
+    const { y, x } = this.state;
 
-    console.log(Math.floor(y) === Math.floor(randomYVariable), Math.floor(y), Math.floor(randomYVariable));
+    // Floor the values so we have a greater chance at matching to the random variable since X/Y are returned as long decimals.
+    const floorX = Math.floor(this.state.x);
+    const floorY = Math.floor(this.state.y);
+    const showUnicorn = ((floorY === randomVariable) &&  (floorX === randomVariable));
+
+    console.log(showUnicorn, floorX, floorY, randomVariable);
 
     return (
       <View style={styles.container}>
         <Backdrop
-          y={y} />
+          y={y}
+          x={x} />
         {showUnicorn &&
           <Unicorn />}
       </View>
