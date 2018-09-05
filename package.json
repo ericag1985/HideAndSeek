@@ -20,8 +20,6 @@
   "dependencies": {
     "react": "16.3.1",
     "react-native": "~0.55.2",
-    "react-native-sensors": "^3.0.0",
-    "recompose": "0.27.1",
-    "rxjs": "^5.5.10"
+    "react-native-sensors": "^3.0.0"
   }
 }
