@@ -16,3 +16,9 @@ Note: While the initial project was created with `create-react-native-app`, it w
     
 ### Libraries Used
 *[react-native-sensors](https://react-native-sensors.github.io/)
+
+### TODO:
+- "Rules" screen
+- Make unicorn tappable to show you found him
+- Add multiple unicorns!
+- Switch from backdrop to camera
