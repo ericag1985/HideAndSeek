@@ -7,7 +7,7 @@ class Backdrop extends Component {
     const { y, x } = this.props;
 
     const imageWidth = 4 * deviceWidth;
-    const imageHeight = 2 * deviceHeight;
+    const imageHeight = 3 * deviceHeight;
     const backdropDimensions = {
       width: imageWidth,
       height: imageHeight
@@ -24,8 +24,7 @@ class Backdrop extends Component {
         translateX={positionOnScreenX + movementX}
         translateY={positionOnScreenY + movementY}
         style={[styles.backdrop, backdropDimensions]}
-        source={require('../../assets/images/backdrop.jpg')}
-      />
+        source={require('../../assets/images/backdrop.jpg')} />
     );
   }
 }

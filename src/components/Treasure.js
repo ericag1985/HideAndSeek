@@ -7,17 +7,22 @@ class GameRules extends Component {
 
     return (
       <View style={styles.container}>
-        <Text style={[styles.text, styles.heading]}>Hide and Seek Unicorn!</Text>
+        <Text style={[styles.text, styles.heading]}>You Found Him!</Text>
 
-        <Image
-          style={[styles.unicorn]}
-          source={require('../../assets/images/unicorn.png')} />
+        <View style={styles.imageContainer}>
+          <Image
+            style={[styles.unicorn]}
+            source={require('../../assets/images/unicorn.png')} />
 
-        <Text style={styles.text}>There is a unicorn hidden somewhere in the area, move your phone around to find him. Once you find
-          him, give him a tap to recieve his treasure!</Text>
+          <Image
+            style={[styles.unicorn]}
+            source={require('../../assets/images/treasure.png')} />
+        </View>
+
+        <Text style={styles.text}>You are rewarded with his treasure.</Text>
 
         <TouchableOpacity onPress={onClose}>
-          <Text style={[styles.text,styles.button]}>START SEARCH</Text>
+          <Text style={[styles.text,styles.button]}>SEARCH AGAIN</Text>
         </TouchableOpacity>
       </View>
     );
@@ -29,7 +34,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#000",
+    backgroundColor: "#5d4776",
+  },
+  imageContainer: {
+    flexDirection: 'row'
   },
   text: {
     color: '#fff',

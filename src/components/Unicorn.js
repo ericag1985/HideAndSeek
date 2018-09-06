@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Image, StyleSheet} from "react-native";
+import { View, Image, StyleSheet, TouchableOpacity } from "react-native";
 import { deviceHeight, deviceWidth, getRandomNumber } from "../../utils/utilties";
 
 // Subtract 20 to give some space on sides and account for top/bottom phone bars
@@ -8,21 +8,28 @@ const leftPosition = getRandomNumber(0, (deviceWidth - 20));
 
 class Unicorn extends Component {
   render() {
+    const { onTap } = this.props;
+
     return (
-      <Image
-        style={[styles.unicorn]}
-        source={require('../../assets/images/unicorn.png')}
-      />
+      <View style={styles.container}>
+        <TouchableOpacity onPress={onTap}>
+          <Image
+            style={[styles.unicorn]}
+            source={require('../../assets/images/unicorn.png')} />
+        </TouchableOpacity>
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  unicorn: {
+  container: {
     position: "absolute",
     top: topPosition,
     left: leftPosition,
-    zIndex: 9999,
+    zIndex: 9999
+  },
+  unicorn: {
     height: 100,
     width: 100
   }
